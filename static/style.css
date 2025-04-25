@@ -1,0 +1,201 @@
+html {
+    text-align: center;
+    align-items: center;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #e6ffe6;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    color: #2e7d32;
+}
+.task-form input[type="text"] {
+    padding: 10px;
+    width: 70%;
+}
+.task-form input[type="submit"] {
+    padding: 10px;
+    background: #66bb6a;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: white;
+    border: 3px solid #2e7d32;
+    box-shadow: 0.4rem 0.4rem 0 #2e7d32;
+    border-radius: 8px;
+    margin: 10px auto;
+    padding: 1rem;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #2e7d32;
+    transition: background 0.3s ease;
+}
+
+li:hover {
+    background: #f1fff1;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+    font-style: italic;
+}
+
+.forest {
+    margin-top: 30px;
+}
+.tree {
+    display: inline-block;
+    margin: 5px;
+    font-size: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 8px;
+    border: 3px solid #2e7d32;
+    box-shadow: 0.5rem 0.5rem 0 #2e7d32;
+    max-width: 500px;
+}
+
+.input {
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+.input__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background: white;
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    transition: transform 120ms ease-in;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.input__field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 3px solid #2e7d32;
+    padding: 1rem;
+    color: #2e7d32;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.input__field:focus + .input__label,
+.input__field:not(:placeholder-shown) + .input__label {
+    transform: translate(0.5rem, -65%) scale(0.8);
+    color: #66bb6a;
+}
+
+.button-group {
+    margin-top: 1.5rem;
+}
+
+.button-group button {
+    color: #212121;
+    padding: 0.5rem 1rem;
+    background: #66bb6a;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button-group button[type="reset"] {
+    background: white;
+    border: 2px solid #2e7d32;
+    font-weight: normal;
+}
+
+.button-group button + button {
+    margin-left: 1rem;
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+}
+.task-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.complete-btn {
+    background: #a5d6a7;
+    color: #1b5e20;
+}
+
+.delete-btn {
+    background: #ef9a9a;
+    color: #b71c1c;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+.completed-wrapper {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 3px solid #81c784;
+    border-radius: 8px;
+    box-shadow: 0.4rem 0.4rem 0 #2e7d32;
+    background: #f0fff0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toggle-completed {
+    background: #a5d6a7;
+    color: #1b5e20;
+    font-weight: bold;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+  }
+  
+.completed-container {
+    margin-top: 1rem;
+  }
+  

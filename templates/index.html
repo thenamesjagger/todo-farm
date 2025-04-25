@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Farm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🌱 Todo Farm</h1>
+    <div class="card">
+        <h2><svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-coffee" href="#icon-coffee" /></svg>Regular</h2>
+        <form method="POST">
+          <label class="input">
+            <input class="input__field" type="text" name="content" placeholder=" " required />
+            <span class="input__label">Add a new task</span>
+          </label>
+          <div class="button-group">
+            <button type="submit">Add Task</button>
+            <button type="reset">Reset</button>
+          </div>
+        </form>
+    </div>   
+    <ul>
+      {% for task in tasks if not task.completed %}
+          <li>
+              <span>{{ task.content }}</span>
+              <div class="task-actions">
+                  <form method="POST" action="{{ url_for('complete', id=task.id) }}" style="display: inline;">
+                    <button class="action-btn complete-btn" type="submit">Complete</button>
+                  </form>
+                  <form method="POST" action="{{ url_for('delete', id=task.id) }}" style="display: inline;">
+                    <button class="action-btn delete-btn" type="submit">Delete</button>
+                  </form>
+              </div>                  
+          </li>
+      {% endfor %}
+    </ul>
+    <div class="card completed-wrapper">
+      <button class="toggle-completed" data-completed-count="{{ completed }}" onclick="toggleCompleted()">Show Completed Tasks ({{ completed }})</button>
+      <div id="completed-container" class="completed-container hidden">
+        <ul id="completed-tasks">
+          {% for task in tasks if task.completed %}
+            <li class="completed">
+              {{ task.content }}
+              <div class="task-actions">
+                <form method="POST" action="{{ url_for('complete', id=task.id) }}" style="display:inline;">
+                  <button class="action-btn complete-btn" type="submit">Undo</button>
+                </form>
+                <form method="POST" action="{{ url_for('delete', id=task.id) }}" style="display:inline;">
+                  <button class="action-btn delete-btn" type="submit">Delete</button>
+                </form>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>    
+    <div class="forest">
+        <h2>Your Tree Farm 🌳</h2>
+        {% for _ in range(completed) %}
+            <span class="tree">🌳</span>
+        {% endfor %}
+        {% if completed == 0 %}
+            <p>Complete tasks to plant trees!</p>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
