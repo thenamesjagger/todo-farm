@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: todo-farm
-          image: <your-docker-image-repository>/todo-farm:latest
+          image: thenamesjagger/todo-farm:latest
           ports:
             - containerPort: 5000
 ---
