@@ -56,10 +56,7 @@ def delete(id):
         return redirect('/')
     except:
         return "There was a problem deleting that task"
-    
-@app.before_first_request
-def create_tables():
-    db.create_all()
+
 
 if __name__ == "__main__":
     with app.app_context():
